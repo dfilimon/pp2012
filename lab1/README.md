@@ -1,6 +1,6 @@
 # Laboratorul 1: Introducere
 
-## [Laborator pe Wiki](http://elf.cs.pub.ro/pp/laboratoare/l1)
+### [Laborator pe elf.cs](http://elf.cs.pub.ro/pp/laboratoare/l1)
 
 ## Dr. Racket
 Folosim mediul [Dr. Racket](http://racket-lang.org/download/) deși în principiu puteți folosi orice Scheme vreți voi. Îl puteți găsi și compila manual și pe [Github](https://github.com/plt/racket).
