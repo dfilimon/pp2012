@@ -38,7 +38,7 @@ Dacă aveți nevoie de ajutor pentru o formă, folosiți `help`:
 ## Cuvinte cheie
 * `define`, `quote`
 * `list`, `cons`, `car`, `cdr`
-* predicate: `list?`, `number?`, `real?`, `empty?` 
+* predicate: `list?`, `number?`, `real?`, `empty?`, `equal?` 
 
 ## Temă (pentru bonus)
 1. Funcție pentru *ultimul element* dintr-o listă
