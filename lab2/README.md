@@ -17,4 +17,4 @@ De aceeaa există predicate ca `number?`, `boolean?`, `list?`, ...
 
 ## Recursivitate *simplă* și *prin revenire* (tail recursion)
 
-## Legările locale funcțiilor prin *let*, *letrec*, *let\**
+## Legările locale funcțiilor prin *let*, *letrec*, <em>let*</em>
