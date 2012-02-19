@@ -3,6 +3,10 @@
 ## De ce? 
 The tools we use have a profound (and devious!) influence on our thinking habits, and therefore, on our thinking abilities. ["How do we tell truths that might hurt?" – Edgar Dijkstra](http://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html)
 
+## Linkuri importante pentru curs / laborator
+* Wiki la [elf.cs.pub.ro/pp][]
+* Site-ul de cursuri la [cs.curs.pub.ro/2011][] (verificați folderul *Note de curs și exempe*)
+
 ## Paradigma funcțională
 
 ### Scheme (dialect de Lisp)
@@ -30,4 +34,4 @@ Scopul acestei liste *nu e să citiți integral* toate paperurile! Nici eu n-am 
 * Structure and Interpretation of Computer Programs [carte MIT](http://mitpress.mit.edu/sicp/full-text/book/book.html)
 * Simply Scheme: Introducing Computer Science [carte](http://www.cs.berkeley.edu/~bh/ss-toc2.html)
 * Teach Yourself Scheme in Fixnum Days [carte](http://www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme.html)
-* How To Design Programs [carte](http://www.htdp.org/): chiar folosește Dr. Racket și e și un limbaj selectabil
+* How To Design Programs [carte](http://www.htdp.org/): chiar folosește Dr. Racket și HTDP e un limbaj selectabil
