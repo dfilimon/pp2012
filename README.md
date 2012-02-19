@@ -4,8 +4,8 @@
 The tools we use have a profound (and devious!) influence on our thinking habits, and therefore, on our thinking abilities. ["How do we tell truths that might hurt?" – Edgar Dijkstra](http://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html)
 
 ## Linkuri importante pentru curs / laborator
-* Wiki la [elf.cs.pub.ro/pp][]
-* Site-ul de cursuri la [cs.curs.pub.ro/2011][] (verificați folderul *Note de curs și exempe*)
+* Wiki la [elf.cs.pub.ro/pp][elf.cs.pub.ro/pp]
+* Site-ul de cursuri la [cs.curs.pub.ro/2011][cs.curs.pub.ro/2011] (verificați folderul *Note de curs și exempe*)
 
 ## Paradigma funcțională
 
