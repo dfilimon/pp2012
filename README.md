@@ -6,9 +6,11 @@ The tools we use have a profound (and devious!) influence on our thinking habits
 ## Paradigma funcțională
 
 ### Scheme (dialect de Lisp)
+
 #### De ce?
 * [Land of Lisp](http://landoflisp.com/) (asigurați-vă că ajungeți la comic-ul de mai jos: scroll down! ;)
 * <a href="http://en.wikipedia.org/wiki/Paul_Graham_(computer_programmer)">Paul Graham</a>'s collection of [Lisp Quotes](http://www.paulgraham.com/quotes.html)
+
 #### Colecția 'Lambda Papers' de Guy Steele și Gerald Sussman
 Seria de articole 'Lambda Papers' face parte din [AI Memos](http://en.wikipedia.org/wiki/AI_Memo) memo-uri și rapoarte tehnice foarte influente publicate de laboratorul de AI de la MIT în anii 1970.
 
