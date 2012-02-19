@@ -13,7 +13,8 @@ Dacă vreți să lansați direct `racket` din linia de comandă (pe Unix...) vă
 Din fericire, există o soluție: [`rlwrap`](http://freecode.com/projects/rlwrap). Îl puteți instala cu un `apt-get` sau metoda voastră preferată!
 
 Ca să încărcați un program în REPL, fie apăsați pe *Run*, fie folosiți `load`:
+
 ```scheme
-> (load "lab1.rkt")
+        > (load "lab1.rkt")
 ```
         
