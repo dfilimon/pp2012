@@ -15,6 +15,6 @@ Din fericire, există o soluție: [`rlwrap`](http://freecode.com/projects/rlwrap
 Ca să încărcați un program în REPL, fie apăsați pe *Run*, fie folosiți `load`:
 
 ```scheme
-        > (load "lab1.rkt")
+> (load "lab1.rkt")
 ```
         
