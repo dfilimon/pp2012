@@ -87,7 +87,86 @@ da o eroare fiindcă `f` se așteaptă să primească doar un parametru.
 Acum, un apel ar fi `(g 1 2)` care dă `3` iar `(g 1)` dă o eroare.
 
 ## Recursivitate *simplă* și *prin revenire* (tail recursion)
+Am spus că în Scheme recursivitatea este vitală. Nu există (teoretic)
+bucle `for`, `while` și traversarea structurilor se face numai
+recursiv.
 
+În mod normal, în C de exemplu, fiecare apel recursiv corespunde unui
+nou *cadru pe stivă*. De-asta, recursivitatea este de "evitat" în
+multe limbaje de programare imperative.
+
+Să considerăm cea mai simplă funcție recursivă, *factorial* în Scheme.
+
+```scheme
+(define (fact n)
+	(if (= n 0) 1
+		(* n (fact (- n 1)))))
+```
+
+Pentru un apel, de genul `(fact 4)`, se construiește un nou cadru pe
+stivă pentru execuția funcției cu 4 drept argument al lui
+`n`. Evaluând corpul obținem:
+
+`(fact 4) -> (* 4 (fact 3)) -> (* 4 (* 3 (fact 2))) -> (* 4 (* 3 (* 2
+(fact 1)))) -> (* 4 (* 3 (* 2 (* 1 (fact 0))))) -> (* 4 (* 3 (* 2 (* 1
+1))))`
+
+Fiecare apel al lui `fact`, construiește un alt cadru pe stivă,
+oprindu-ne la `n = 0` și întorcându-ne ca să putem face calculele din
+apel în apel.
+
+Deși exprimă definiția matematică foarte clar, pentru `n` în general,
+spațiul ocupat crește liniar.
+
+În C, nu facem așa de obicei. De obicei scriem o buclă de genul:
+
+```c
+int a = 1;
+for (int i = n; i > 0; --i)
+	a *= n;
+```
+
+Esențială este variabila `a`, *acumulatorul*. Putem reformula
+funcția factorial de mai devreme cu un acumulator.
+
+```scheme
+(define (fact n a)
+	(if (= n 0) a
+		(fact (- n 1) (* n a))))
+```
+
+De data asta, când începem calculul pentru 4!, avem:
+
+`(fact 4 1) -> (fact 3 4) -> (fact 2 12) -> (fact 1 24) -> (fact 0 24)
+-> 24`
+
+Am avea aparent tot `n` cadre pe stivă, dar, la *întoarcere*, de data
+asta nu mai procesăm rezultatul funcției apelate. Îl întoarcem
+direct.
+De-asta optimizarea pe care Scheme o face este de a *nu mai crea un
+cadru pentru fiecare apel* ci *înlocuiește cadrul existent pe stivă*,
+fiindcă rezultatul trebuie direct întors și nu va mai fi folosit în
+vreo expresie. Optimizarea se numește *tail call optimization*.
+
+*Tail*-ul vine din faptul că apelul recursiv este plasat la finalul
+ corpului funcției. Adică, în expresia corpului, `(if (= n 0) a (fact
+ (- n 1) (* n a)))`, ultimul element al listei este apelul recursiv.
+ 
+ Acest fapt face optimizarea posibilă fiindcă înseamnă că rezultatul
+ apelului recursiv trebuie întors direct la apelant, nu mai trebuie
+ făcut vreun calcul cu el (cum se întâmpla în primul caz în care se
+ înmulțea cu `(* n (fact (- n 1)))`). Ca optimizarea să poată fi
+ făcută, apelul trebuie să fie în *tail position*, adică să fie
+ ultimul element din expresia corpului, ce-am descris mai sus.
+ 
+ Optimizarea e vitală fiindcă spațiul pe stivă e limitat și ar fi
+ folosit inutil. E de remarcat că deși Scheme face asta automat (e o
+ constrângere a standardului), C sau chiar alte dialecte de Lisp nu
+ (deși ar fi posibil).
+ 
+ În plus, de obicei cum forma asta mai necesită apariția unei
+ variabile în plus în definiție, forma tail-recursive se pune într-un
+ `letrec` și este îmbrăcată de un apel al funcției fără acumulator.
 
 ## Legări locale funcțiilor prin *let*, *letrec*, <em>let*</em>, <em>letrec*</em>
 Diferențe/asemănări:
