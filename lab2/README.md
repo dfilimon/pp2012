@@ -10,7 +10,7 @@ MapReduce (cu Map și Reduce ca funcționale: vedeți mai jos explicații)!
 * Paginile 28-34 pentru concepte de bază
 * Paginile 41-43 pentru MapReduce
 
-Separat ca postere:
+Separat, ca postere:
 
 * [Constructori de liste](http://csillustrated.berkeley.edu/PDFs/posters/list-constructors-poster.pdf)
 * [Greșeli frecvente cu liste](http://csillustrated.berkeley.edu/PDFs/posters/list-mistakes-poster.pdf)
@@ -29,8 +29,65 @@ De aceeaa există predicate ca `number?`, `boolean?`, `list?`, ...
 `char->integer`, `string->number`, `symbol->string`
 
 ## Funcții *curried* și *uncurried*
+Din punct de vedere matematic, o funcție asociază fiecărei valori
+dintr-o mulțime, numită *domeniu*, o valoarea dintr-o mulțime numită
+*codomeniu*.
+
+Astfel, `f: D -> C` și unei valori `x` din `D` îi corespunde o valoare
+`f(x)` din `C`.
+
+Domeniul `D` poate fi însă și un produs cartezian. Pentru funcția
+`f(x, y) = 3x + 2y + 7` cu `x` și `y` numere naturale, `f : NxN -> N`.
+Funcția `f` din acest caz are *două argumente*. Dacă am scrie asta în
+`C`, codul ar fi ceva de genul
+
+```c
+int f(int x, int y) {
+	return 3 * x + 2 * y + 7;
+}
+```
+
+și am apela funcția `f` cu ambii parametri, `f(2, 3)` de exemplu. În
+`C`, expresia `f(2)` ar produce o eroare la compilare.
+
+Totuși, din punct de vedere matematic, dacă privim evaluarea funcției
+ca substituirea argumentelor în definiție, `f(2) = 3 * 2 + 2y + 7`,
+adică `f(2) = 2y+ 13`. Asta poate fi altă funcție, `g(y) = 2y + 13`.
+
+Deci, putem are sens să ne așteptăm ca atunci când dăm unei funcții cu *2 parametri*,
+doar unul dintre ei, să primim ca rezultat *o funcție cu 1 parametru*. 
+
+Corespunzător celor două perspective, există două forme, *forma curry*
+și *forma uncurry* a unei funcții, denumite după logicianul Haskell
+Curry.
+
+* Funcțiile în *forma curry* își așteaptă argumentele *pe rând* și
+rezultatele intermediare sunt funcții.
+
+```scheme
+(define f 
+	(lambda (x)
+		(lambda (y)
+			(+ x y))))
+```
+
+Deci, pentru funcția de mai sus, un apel ar fi `((f 1) 2)` care dă `3`
+fiindcă `(f 1)` este o funcție, `(lambda (y) (+ 1 y))`. `(f 1 2)` va
+da o eroare fiindcă `f` se așteaptă să primească doar un parametru.
+
+* Funcțiile în *forma uncurry* își așteaptă argumentele *în același
+  timp*.
+  
+```scheme
+(define g
+	(lambda (x y)
+		(+ x y)))
+```
+
+Acum, un apel ar fi `(g 1 2)` care dă `3` iar `(g 1)` dă o eroare.
 
 ## Recursivitate *simplă* și *prin revenire* (tail recursion)
+
 
 ## Legări locale funcțiilor prin *let*, *letrec*, <em>let*</em>, <em>letrec*</em>
 Diferențe/asemănări:
