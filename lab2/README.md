@@ -168,13 +168,62 @@ vreo expresie. Optimizarea se numește *tail call optimization*.
  variabile în plus în definiție, forma tail-recursive se pune într-un
  `letrec` și este îmbrăcată de un apel al funcției fără acumulator.
 
-## Legări locale funcțiilor prin *let*, *letrec*, <em>let*</em>, <em>letrec*</em>
-Diferențe/asemănări:
-* let, letrec evaluează expresiile legărilor înainte de a face vreo
-  legare
-* let\*, letrec* evaluează expresiile secvențial și legările
-  anterioare vor fi vizibile după 
+## Legări locale funcțiilor prin *let*, *letrec*, <em>let*</em>
+În cazul funcțiilor mai mari, există probabil expresii care se
+repetă. Un caz simplu ar fi o funcție care întoarce rădăcinile unei
+expresii de gradul 2, `ax^2 + bx + c = 0`. Cele două soluții, `x1` și
+`x2` diferă doar printr-un `-` la numărător.
+În C, am îmbunătăți lizibilitatea codului folosind variabile
+temporare. În Scheme, putem lega nume la expresii pe care le folosim
+mai des.
 
+Aceste construcții care fac legările se numesc *let-uri*. Există *3
+tipuri*  de let-uri (let, let*, letrec) care au aceeași sintaxă, dar diferă din punctul de
+vedere al ordinii în care evaluează expresiile și fac legările efective.
+
+Sintaxa pentru toate cele 3 forme este (am pus `kwd` în loc de numele
+let-ului):
+
+```scheme
+(kwd 
+	( (nume1 expr1)
+	  (nume2 expr2)
+	  ...
+	  (numen exprn) )
+	 corp)
+```
+
+Spre exemplu, ar putea fi:
+
+```scheme
+(let*
+	( (bsq (* b b))
+	  (fac (* 4 a c))
+	  (delta (- bsq fac)) )
+	(/ (+ (- b) (sqrt delta)) (* 2 a)))
+```
+
+* *let*
+  Toate expresiile, de la *expr1*  .. *exprn* sunt mai întâi evaluate
+  și apoi legate la *nume1* .. *numen*.
+  
+* <em>let*</em>
+  Expresiile sunt evaluate și legate la numele care le corespunde una
+  câte una. În exemplul de mai sus, pot folosi `bsq` în definiția lui
+  `delta` fiindcă `bsq` a fost legat la expresiia corespunzătoare
+  înainte. Cu un `let`, `bsq` nu ar fi fost legat în momentul
+  evaluării expresiei pentru `delta` și ar fi dat o eroare. 
+  
+* *letrec*
+  Dacă vreau să definesc o funcție recursivă într-un *let* ca să
+  îmbrac spre exemplu o funcție tail recursive și să-i ascund
+  acumulatorul, folosind `let` sau `let*`, numele nu va fi legat încă
+  în momentul evaluării expresiei producând astfel o eroare.
+  
+  `letrec` leagă inițial toate numele la `undefined` și apoi evaluează
+  expresiile și face legările corecte.
+  Astfel, funcționează și în cazul definiției unei funcții recursive.
+  
 ## Funcții de nivel superior
 map, fold, filter
 
