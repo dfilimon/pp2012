@@ -41,24 +41,20 @@ Uneori comportamentul dorit e să adauge elementele listei la corpul `quasiquote
 		<td>Abreviere</td>
 	</tr>
 	<tr>
-		<td>`quote`</td>
-		<td>`'`</td>
+		<td><pre>quote</pre></td>
+		<td><pre>'</pre></td>
 	</tr>
 	<tr>
-		<td>`quasiquote`</td>
-		<td>'</td>
+		<td><pre>quasiquote</pre></td>
+		<td><pre>`</pre></td>
 	</tr>
 	<tr>
-		<td>```</td>
-		<td>'</td>
+		<td><pre>unquote</pre></td>
+		<td><pre>,</pre></td>
 	</tr>
 	<tr>
-		<td>`unquote`</td>
-		<td>`,`</td>
-	</tr>
-	<tr>
-		<td>`unquote-splicing`</td>
-		<td>`,@`</td>
+		<td><pre>unquote-splicing</pre></td>
+		<td><pre>,@</pre></td>
 	</tr>
 </table>
 
@@ -66,8 +62,11 @@ Uneori comportamentul dorit e să adauge elementele listei la corpul `quasiquote
 1. Angry Birds e un joc în care se lansează păsări care devastează zone de raze diferite cu scopul de a aplatiza totul dintr-un nivel :)
 
     Noi vrem să aplatizăm doar niște țarcuri de porci, descrise printr-o listă (de simboluri):
-	'(pig pig - - - pig - - pig)
-	    1    2  3 4 5  6   7 8  9
+	
+	`'(pig pig - - - pig - - pig)`
+	
+	     1    2  3 4 5  6   7 8  9
+		
 	Țarcurile goale sunt reprezentate prin simbolul `'-` iar cele cu un porc cu simbolul `'pig`.	
 	
 	O pasăre e descrisă de raza ei de acțiune, `r` și aruncătura de poziția în care cade, `p`. Toți porcii din raza de acțiune a unei păsări (adică cu poziții între p - r și p + r) explodează și țarcurile se golesc. Un țarc gol nu e afectat.
@@ -84,9 +83,9 @@ Uneori comportamentul dorit e să adauge elementele listei la corpul `quasiquote
 	 
 1. E o zi fierbinte de vară și ai ajuns în fața unui stand de înghețată. Știind că sunt:
 
-* 3 mărimi, '(small medium large)
-* 4 arome, '((velvety vanilla) (decadent chocolate) (rum raisin) (gross ginger))
-* poți cumpăra înghețata în con sau într-o cupă '(cone cup)
+	* 3 mărimi, '(small medium large)
+	* 4 arome, '((velvety vanilla) (decadent chocolate) (rum raisin) (gross ginger))
+	* poți cumpăra înghețata în con sau într-o cupă '(cone cup)
 
 	Și că-ți place să știi exact ce variante ai, scrie o funcție care generează toate posibilitățile pentru acest meniu (meniul e lista cu categoriile de mai sus). Ar trebui să meargă pentru *orice* meniu.	
 	
