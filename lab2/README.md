@@ -332,16 +332,24 @@ funcția care dă structura listei*, pe `cons`, cu o funcție `f`.
 
 Cred că e *mult* mai clar dacă pun aici două poze (pentru cele două
 mari clase de fold) și un link către
-<a href="http://en.wikipedia.org/wiki/Fold_(higher-order_function)articoul
-foarte bine scris de pe Wikipedia</a>.
+<a href="http://en.wikipedia.org/wiki/Fold_(higher-order_function)>articoul
+foarte bine scris de pe Wikipedia</a>. Citiți secțiunile *Folds as
+structural transformations* și *Folds on lists*.
 
+#### Fold Right (Wikipedia)
 <img
 src="http://upload.wikimedia.org/wikipedia/commons/3/3e/Right-fold-transformation.png"/>
+Pentru lista `'(1 2 3 4 5)`,  `foldlr` cu `f`, produce:
 
+`(f 1 (f 2 (f 3 (f 4 (f 5 z)))))`
+
+#### Fold Left (Wikipedia)
 <img
 src= "http://upload.wikimedia.org/wikipedia/commons/5/5a/Left-fold-transformation.png"/>
 
+Pentru lista `'(1 2 3 4 5)`, `foldl` cu `f`, produce:
 
+`(f (f (f (f (f 1 z) 2) 3) 4) 5)`
 
 ## Exerciții
 1. Trecea între forma curried și cea uncurried
