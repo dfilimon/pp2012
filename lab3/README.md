@@ -65,7 +65,7 @@ Uneori comportamentul dorit e să adauge elementele listei la corpul `quasiquote
 	
 	`'(pig pig - - - pig - - pig)`
 	
-	1    2  3 4 5  6   7 8  9
+	`1    2  3 4 5  6   7 8  9`
 		
 	Țarcurile goale sunt reprezentate prin simbolul `'-` iar cele cu un porc cu simbolul `'pig`.	
 	
