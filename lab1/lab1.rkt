@@ -1,5 +1,5 @@
 ; Decomentați linia de mai jos dacă folosiți Dr. Racket
-;#lang racket
+#lang racket
 
 ; Câteva expresii simple
 (+ 2 3 5 6)
