@@ -227,8 +227,121 @@ Spre exemplu, ar putea fi:
   expresiile și face legările corecte.
   Astfel, funcționează și în cazul definiției unei funcții recursive.
   
-## Funcții de nivel superior
-map, fold, filter
+## Funcții de nivel superior (funcționale)
+În programarea funcțională, funcțiile sunt
+["first class citizens"](http://en.wikipedia.org/wiki/First-class_citizen). E
+deci normal să putem scrie funcții care primesc și întorc alte
+funcții.
+
+Aceste funcții se numesc *funcții de nivel superior* sau,
+*funcționale*. Ele sunt extrem de utile atunci când vrem să
+implementăm diferiți algoritmi pentru care structura e esențial
+aceeași și diferă o parte de logică.
+
+Spre exemplu, în C, există funcția `qsort` în `stdlib.h` care sortează
+elementele unui vector. Ea primește ca argument un pointer către o
+funcție de `comparare`, un comparator. Asta e util fiindcă dacă am
+vrea să sortăm un vector crescător, apoi descrescător ar trebui să
+avem câte o funcție pentru fiecare caz deși singurul lucru din
+algoritm care diferă de fapt e criteriul de comparație.
+
+Cele mai cunoscute funcționale (pe care le găsiți implementate și în
+Scheme) sunt `map`, `filter` și `fold`. `Map` și `fold` (numit în alte
+limbaje și `reduce`) au inspirat modelul [MapReduce](http://en.wikipedia.org/wiki/MapReduce) folosit de Google
+în algoritmi distribuiți pe volume foarte mari de date. Găsiți legat
+de asta niște postere utile în lista Computer Science Illustrated din
+prima secțiune.
+
+### Map
+Să zicem că vrem să facem o funcție `(add-one l)` care adună 1 la
+fiecare element dintr-o listă. În Scheme, ar fi:
+
+```scheme
+(define (add-one l)
+	(if (empty? l) '()
+		(cons (+ 1 (car l)) (add-one (cdr l)))))
+```
+
+Dacă am avea nevoie de o funcție care înmulțește cu 2 fiecare element
+dintr-o listă, `(times-two l)`, am scrie:
+
+```scheme
+(define (times-two l)
+	(if (empty? l) '()
+		(cons (* 2 (car l)) (times-two (cdr l)))))
+```
+
+Între cele două funcții, există remarcabil de mult cod
+duplicat. Diferența este procesarea făcută pe capul listei. Pe cazul
+general, vrem să aplicăm o funcție `f` pe fiecare element al
+listei. Obținem astfel funcționala `map` (am numit-o `map2` fiindcă
+Scheme are deja o funcție `map`):
+
+```scheme
+(define (map2 f l)
+	(if (empty? l) '()
+		(cons (f (car l)) (map2 f (cdr l)))))
+```		
+
+### Filter
+Acum, presupunem că avem nevoie de numerele pare ale unei liste, cu o
+funcție `(get-even l)`. În Scheme, ar fi:
+
+```scheme
+(define (get-even l)
+	(if (empty? l) '()
+		(let ((head (car l))
+		       (rest (get-even (cdr l))))
+			(if (even? head) 
+				(cons head tail) 
+				tail))))
+```				
+
+Dacă avem nevoie de nuemerele impare ale unei liste, ar trebui să
+scriem:
+
+```scheme
+(define (get-odd l)
+	(if (empty? l) '()
+		(let ((head (car l))
+		       (rest (get-odd (cdr l))))
+			(if (odd? head) 
+				(cons head tail) 
+				tail))))
+```
+
+Pe cazul general, vrem de fapt o funcțională `filter`, care să
+păstreze doar elementele care respectă o anumită proprietate (sau
+predicat). Mai exact, vrem:
+
+```scheme
+(define (filter p l)
+	(if (empty? l) '()
+		(let ((head (car l))
+		       (rest (filter p (cdr l))))
+			(if (p head) 
+				(cons head tail) 
+				tail))))
+```
+
+### Fold
+Fold este cea mai versatilă funcțională și de fapt poate abstractiza
+orice algoritm pe o listă. Fold (de fapt o familie de funcționale)
+reprezintă transformări structurale, adică pentru liste, *înlocuiește
+funcția care dă structura listei*, pe `cons`, cu o funcție `f`.
+
+Cred că e *mult* mai clar dacă pun aici două poze (pentru cele două
+mari clase de fold) și un link către
+<a href="http://en.wikipedia.org/wiki/Fold_(higher-order_function)articoul
+foarte bine scris de pe Wikipedia</a>.
+
+<img
+src="http://upload.wikimedia.org/wikipedia/commons/3/3e/Right-fold-transformation.png"/>
+
+<img
+src= "http://upload.wikimedia.org/wikipedia/commons/5/5a/Left-fold-transformation.png"/>
+
+
 
 ## Exerciții
 1. Trecea între forma curried și cea uncurried
