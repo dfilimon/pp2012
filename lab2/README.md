@@ -352,11 +352,27 @@ Pentru lista `'(1 2 3 4 5)`, `foldl` cu `f`, produce:
 `(f (f (f (f (f 1 z) 2) 3) 4) 5)`
 
 ## Exerciții
-1. Trecea între forma curried și cea uncurried
-1. Exerciții cu let, let* și letrec
-[Handout let](http://www.cs.vassar.edu/~cs295/handouts/let-forms.pdf)
-1. Comparații între recursivitatea simplă și tail recursion: fibonacci, inversa unei liste...
-1. Implementări map, fold, filter
-1. Implementări map și filter ca fold
-1. Pig Latin cu funcționale 
-1. PigSty with AngryBirds (contestron)
+1. Inversarea unei liste:
+   1. recursivitate simplă
+   1. tail recursion (cu letrec)
+  
+1. `zip`:  `(zip '(1 2 3) '(4 5 6))` = `'((1 . 4) (2 . 5) (3 . 6))`
+(face perechi cu primul element din prima listă și al doilea element
+din a doua listă)
+   1. `(zipwith f l1 l2)` funcțională care aplică funcția `f` cu
+   primul argument din `l1` și al doilea din `l2` formând o listă cu
+   rezultatele.
+   1. `zip2` implementată ca `zipwith` cu funcția `f` necesară
+   1. `zipwith` implementat și tail-recursive!
+   
+1. Funcționala `forall p l` care  întoarce `#t` dacă toate elementele
+listei satisfac predicatul `p` și fals dacă cel puțin unul nu.
+
+1. Trecea între forma curried și cea uncurried (două funcții).
+
+1. Rezolvare ecuației de gradul 2 cu rădăcini complexe cu rădăcinile o
+pereche.
+
+1. Implementarea `quicksort` care compară cu un comparator custom
+folosind ca pivot mereu primul element și `filter` pentru
+partiționare.
