@@ -65,7 +65,7 @@ Uneori comportamentul dorit e să adauge elementele listei la corpul `quasiquote
 	
 	`'(pig pig - - - pig - - pig)`
 	
-	`1    2  3 4 5  6   7 8  9`
+	     1    2  3 4 5  6   7 8  9
 		
 	Țarcurile goale sunt reprezentate prin simbolul `'-` iar cele cu un porc cu simbolul `'pig`.	
 	
@@ -77,15 +77,15 @@ Uneori comportamentul dorit e să adauge elementele listei la corpul `quasiquote
 1. [Pig Latin](http://en.wikipedia.org/wiki/Pig_Latin) e un joc englezesc de cuvinte ale cărui reguli sunt descrise pe Wikipedia. Noi vom folosi următoarea variantă simplificată:
 
    1. toate consoanele de la începutul cuvântului (până la prima vocală) sunt mutate la final (spaghetti -> paghetti s -> aghetti sp -> aghettisp) și se adaugă sufixul -ay (aghettispay).
-   1. presupunem că toate cuvintele sunt liste de simboluri: '(s p a g h e t t i)
+   1. presupunem că toate cuvintele sunt liste de simboluri: `'(s p a g h e t t i)`
      
 	 Scrieți funcția care transformă un cunvânt în Pig Latin și o funcție care transformă o propozițe întreagă. Pentru un bonus, folosiți [string-uri](http://docs.racket-lang.org/reference/strings.html) și eventual `string->symbol` și `symbol->string`.
 	 
 1. E o zi fierbinte de vară și ai ajuns în fața unui stand de înghețată. Știind că sunt:
 
-	* 3 mărimi, '(small medium large)
-	* 4 arome, '((velvety vanilla) (decadent chocolate) (rum raisin) (gross ginger))
-	* poți cumpăra înghețata în con sau într-o cupă '(cone cup)
+	* 3 mărimi, `'(small medium large)`
+	* 4 arome, `'((velvety vanilla) (decadent chocolate) (rum raisin) (gross ginger))`
+	* poți cumpăra înghețata în con sau într-o cupă `'(cone cup)`
 
 	Și că-ți place să știi exact ce variante ai, scrie o funcție care generează toate posibilitățile pentru acest meniu (meniul e lista cu categoriile de mai sus). Ar trebui să meargă pentru *orice* meniu.	
 	
