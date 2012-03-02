@@ -3,8 +3,13 @@
 ### [Laborator pe elf.cs](http://elf.cs.pub.ro/pp/laboratoare/l2)
 
 ## Computer Science Illustrated (Berkeley) [pdf](http://www.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-79.pdf)
+Aici sunt câteva ilustrații de la Berkeley ca să vă ajute să
+vizualizați constructorii și operațiile pe liste și paradigma
+
+MapReduce (cu Map și Reduce ca funcționale: vedeți mai jos explicații)!
 * Paginile 28-34 pentru concepte de bază
 * Paginile 41-43 pentru MapReduce
+
 Separat ca postere:
 * [Constructori de liste](http://csillustrated.berkeley.edu/PDFs/posters/list-constructors-poster.pdf)
 * [Greșeli frecvente cu liste](http://csillustrated.berkeley.edu/PDFs/posters/list-mistakes-poster.pdf)
