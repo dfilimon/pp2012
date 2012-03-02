@@ -59,8 +59,7 @@ Uneori comportamentul dorit e să adauge elementele listei la corpul `quasiquote
 </table>
 
 ## Exerciții
-1. Angry Birds e un joc în care se lansează păsări care devastează zone de raze diferite cu scopul de a aplatiza totul dintr-un nivel :)
-
+1. [Angry Birds](http://en.wikipedia.org/wiki/Angry_Birds) e un joc în care se lansează păsări care devastează zone de raze diferite cu scopul de a aplatiza totul dintr-un nivel :)
     Noi vrem să aplatizăm doar niște țarcuri de porci, descrise printr-o listă (de simboluri):
 	
 	`'(pig pig - - - pig - - pig)`
