@@ -204,23 +204,26 @@ Spre exemplu, ar putea fi:
 ```
 
 * *let*
-  Toate expresiile, de la *expr1*  .. *exprn* sunt mai întâi evaluate
+
+    Toate expresiile, de la *expr1*  .. *exprn* sunt mai întâi evaluate
   și apoi legate la *nume1* .. *numen*.
   
 * <em>let*</em>
-  Expresiile sunt evaluate și legate la numele care le corespunde una
+
+    Expresiile sunt evaluate și legate la numele care le corespunde una
   câte una. În exemplul de mai sus, pot folosi `bsq` în definiția lui
   `delta` fiindcă `bsq` a fost legat la expresiia corespunzătoare
   înainte. Cu un `let`, `bsq` nu ar fi fost legat în momentul
   evaluării expresiei pentru `delta` și ar fi dat o eroare. 
   
 * *letrec*
-  Dacă vreau să definesc o funcție recursivă într-un *let* ca să
+
+    Dacă vreau să definesc o funcție recursivă într-un *let* ca să
   îmbrac spre exemplu o funcție tail recursive și să-i ascund
   acumulatorul, folosind `let` sau `let*`, numele nu va fi legat încă
   în momentul evaluării expresiei producând astfel o eroare.
   
-  `letrec` leagă inițial toate numele la `undefined` și apoi evaluează
+    `letrec` leagă inițial toate numele la `undefined` și apoi evaluează
   expresiile și face legările corecte.
   Astfel, funcționează și în cazul definiției unei funcții recursive.
   
